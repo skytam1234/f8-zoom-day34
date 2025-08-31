@@ -51,6 +51,7 @@ function Counter() {
 
 const app = (
   <>
+    <a href="../index.html">Về trang chủ</a>
     <Counter />
   </>
 );

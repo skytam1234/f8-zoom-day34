@@ -34,9 +34,15 @@ function Todo() {
   function handleChecked(e) {
     const todoItem = e.target.closest(".todo-item");
     if (todoItem) {
-      const key = Number(todoItem.dataset.id) - 1;
-      todos[key].completed = !todos[key].completed;
-      setTodos([...todos]);
+      const key = Number(todoItem.dataset.id);
+      const todosNew = todos;
+      const list = todosNew.map((todo) => {
+        if (todo.id === key) {
+          todo.completed = !todo.completed;
+        }
+        return todo;
+      });
+      setTodos([...list]);
     }
   }
   return (
@@ -101,6 +107,7 @@ function Todo() {
 }
 const app = (
   <>
+    <a href="../index.html">Về trang chủ</a>
     <Todo />
   </>
 );
